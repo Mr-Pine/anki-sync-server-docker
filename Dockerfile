@@ -24,7 +24,13 @@ RUN cargo install --git https://github.com/ankitects/anki.git --tag 2.1.66 anki-
 
 FROM debian:stable-slim AS final
 LABEL lighthouse.base=stable-slim
+
 COPY --from=build /usr/local/cargo/bin/anki-sync-server /
+
+RUN apt-get update
+RUN apt-get install --yes curl
+
+HEALTHCHECK --interval=30s --timeout=3s CMD curl localhost:8080 || exit 1
 
 EXPOSE 8080
 
