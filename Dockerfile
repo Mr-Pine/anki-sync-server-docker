@@ -18,7 +18,7 @@ RUN set -e
 # RUN git clone https://github.com/ankitects/anki.git --branch 2.1.66 .
 # RUN cargo build -r --bin anki-sync-server
 # RUN cp ./target/release/anki-sync-server /anki-sync-server
-RUN cargo install --git https://github.com/ankitects/anki.git --tag 2.1.66 anki-sync-server
+RUN cargo install --git https://github.com/ankitects/anki.git --tag 23.12.1 anki-sync-server
 # RUN type anki-sync-server && false
 # EOF
 
