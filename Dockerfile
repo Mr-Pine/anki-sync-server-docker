@@ -23,7 +23,7 @@ RUN cargo install --git https://github.com/ankitects/anki.git --tag 23.12.1 anki
 # EOF
 
 FROM debian:stable-slim AS final
-LABEL lighthouse.base=stable-slim
+LABEL lighthouse.base=debian:stable-slim
 
 COPY --from=build /usr/local/cargo/bin/anki-sync-server /
 
